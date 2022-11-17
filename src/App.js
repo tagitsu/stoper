@@ -1,5 +1,7 @@
 import Time from "./components/Time/Time";
+import Button from './components/Button/Button';
 import { useState, useEffect } from 'react';
+import styles from './App.module.scss';
 
 const App = () => {
 
@@ -28,9 +30,11 @@ const App = () => {
   return (
     <div className="app">
       <Time time={time} />
-      <button onClick={() => start()}>Start</button>
-      <button onClick={() => stop()}>Stop</button>
-      <button onClick={() => reset()}>Reset</button>
+      <div className={styles.buttons}>
+        <Button action={start}>Start</Button>
+        <Button action={stop}>Stop</Button>
+        <Button action={reset}>Reset</Button>
+      </div>
     </div>
   );
 };

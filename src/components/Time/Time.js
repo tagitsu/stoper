@@ -1,3 +1,5 @@
+import styles from './Time.module.scss';
+
 
 const Time = ({ time }) => {
 
@@ -7,6 +9,9 @@ const Time = ({ time }) => {
     seconds = Math.floor((duration / 1000) % 60);
     minutes = Math.floor((duration / 60000));
     hours = Math.floor((duration / 360000));
+    if (miliseconds < 10) {
+      miliseconds = '0' + miliseconds;
+    }
     if (seconds < 10) {
       seconds = '0' + seconds;
     }
@@ -20,7 +25,7 @@ const Time = ({ time }) => {
   getTime(time);
 
   return(
-    <div>
+    <div className={styles.timer}>
         <p>{hours}:{minutes}:{seconds}.{miliseconds}</p>
     </div>
   );
